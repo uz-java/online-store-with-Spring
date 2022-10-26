@@ -1,0 +1,75 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<header th:fragment="navigation(userDetails, totalCartSum, totalCartItems)">
+    <nav class="d-flex justify-content-between align-items-center flex-wrap">
+        <a th:href="@{/}" class="ml-4" style="text-decoration: none;">
+            <img src="https://cdn6.f-cdn.com/contestentries/565076/14898096/5772c36b99629_thumb900.jpg"
+                 class="img-fluid" height="25" width="75"/>
+        </a>
+        <ul class="d-flex align-items-center mb-0 mr-auto ml-4">
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/products}">Products</a></li>
+            <li><a th:href="@{/cart}">Cart</a></li>
+            <div th:if="${admin}">
+                <li><a th:href="@{/admin/product/new}">Products create</a></li>
+
+            </div>
+            <div th:if="${admin1}">
+                <li><a th:href="@{/admin/users}">Show users</a></li>
+
+            </div>
+
+            <li><a th:href="@{/logout}" style="color: #ddd">Logout</a></li>
+        </ul>
+        <div class="user-cart mr-4">
+            <p class="fw-bold mb-1" style="margin-left: auto;"><span class="welcome">Welcome,</span> <span
+                    th:text="${userDetails.getUsername()}"></span></p>
+            <div>
+                <i class="fas fa-shopping-cart fa-lg position-relative mr-2">
+                    <span class="cart-items" th:text="${totalCartItems}"></span>
+                </i>
+                <span class="cart-price">
+                        <span th:text="${totalCartSum}" th:remove="tag"></span> $
+                    </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- <div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container">
+             <div class="navbar-header">
+                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                 </button>
+                 <a class="navbar-brand" href="#">
+                     <img src="https://cdn6.f-cdn.com/contestentries/565076/14898096/5772c36b99629_thumb900.jpg" class="img-fluid" width="75" height="25" />
+                 </a>
+             </div>
+             <div class="navbar-collapse collapse">
+                 <ul class="nav navbar-nav">
+                     <li th:classappend="${module == 'home' ? 'active' : ''}">
+                         <a href="#" th:href="@{/}">Home</a>
+                     </li>
+                     <li th:classappend="${module == 'tasks' ? 'active' : ''}">
+                         <a href="#" th:href="@{/task}">Tasks</a>
+                     </li>
+                 </ul>
+                 <ul class="nav navbar-nav navbar-right">
+                     <li sec:authorize="!isAuthenticated()">
+                         <a href="/login" th:href="@{/login}">
+                             <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;Sign in
+                         </a>
+                     </li>
+                     <li sec:authorize="isAuthenticated()">
+                         <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">
+                             <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout
+                         </a>
+                         <form style="visibility: hidden" id="form" method="post" action="#" th:action="@{/logout}"></form>
+                     </li>
+                 </ul>
+             </div>
+         </div>
+     </div>-->
+</header>
+</html>

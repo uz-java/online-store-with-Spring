@@ -1,0 +1,38 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+
+    <div th:fragment="product_slider(products)" th:remove="tag">
+        <!-- Slider main container -->
+        <div class="col-12">
+            <div class="swiper-container">
+                <div class="swiper-wrapper d-flex align-items-center">
+                    <div th:each="product, productIndex : ${products}" th:remove="tag" th:unless="${productIndex.index > 4}">
+                        <div class="swiper-slide">
+                            <div class="card product-card" style="max-width: 320px;">
+                                <img src="https://media.istockphoto.com/photos/3d-rendering-book-and-reading-concept-picture-id1332946887?b=1&k=20&m=1332946887&s=170667a&w=0&h=0Ls976MqxxTliO0jJEMMZKs-_1M9gsFUOijJRzUIKAE=" alt="Product" class="img-fluid product-image">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${product.getName()}"></h5>
+                                    <h6 class="card-subtitle mb-2 product-category" th:text="${product.getCategory().getName()}"></h6>
+                                    <p>
+                                        Price: <span class="product-price" th:text="${product.getPrice()} + ' $'"></span>
+                                    </p>
+                                    <p class="card-text product-desc" th:text="${product.getDescription()}"></p>
+                                    <div class="mt-2" style="width: 100%; text-align: center;">
+                                        <div th:if="${#lists.contains(productIds, product.getId())}" th:remove="tag">
+                                            <button disabled class="btn btn-outline-primary product-cta">In Cart</button>
+                                        </div>
+                                        <div th:unless="${#lists.contains(productIds, product.getId())}" th:remove="tag">
+                                            <a th:href="@{'/cart/add/' + ${product.getId()} + '/1'}" class="btn btn-dark product-cta">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+
+</html>

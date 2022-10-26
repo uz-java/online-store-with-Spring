@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MST - Register Page</title>
+    <!-- Bootstrap -->
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="/webjars/bootstrap/css/bootstrap.min.css"
+    />
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn6.f-cdn.com/contestentries/565076/14898096/5772c36b99629_thumb900.jpg" type="image/png" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+            rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link th:href="@{/css/style.css}" href="/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<section class="register my-2">
+    <div class="container">
+        <div class="row register-row">
+            <div class="col-12 px-5">
+                <img
+                        src="https://cdn6.f-cdn.com/contestentries/565076/14898096/5772c36b99629_thumb900.jpg"
+                        class="img-fluid"
+                        alt=""
+                        height="50"
+                        width="100"
+                />
+                <h4 class="fw-bold mb-4">Register your account</h4>
+            </div>
+            <form action="/register" th:object="${user}" method="post" class="col-12">
+                <div class="form-group col-md-6 my-2 p-0">
+                    <label for="email">Email</label>
+                    <input
+                            th:field="*{email}"
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            placeholder="Email"
+                            required
+                    />
+                </div>
+
+                <div class="form-group col-md-6 my-2 p-0">
+                    <label for="username">Username</label>
+                    <input
+                            th:field="*{username}"
+                            type="text"
+                            class="form-control"
+                            id="username"
+                            placeholder="user123"
+                    />
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-12 col-md-6 my-2">
+                        <label for="password1">Password</label>
+                        <input
+                                th:field="*{password}"
+                                type="password"
+                                class="form-control"
+                                id="password1"
+                                placeholder="*****"
+                        />
+                    </div>
+                    <div class="form-group col-12 col-md-6 my-2">
+                        <label for="password2">Repeat Password</label>
+                        <input
+                                th:field="*{password_confirmation}"
+                                type="password"
+                                class="form-control"
+                                id="password2"
+                                placeholder="*****"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-12 col-md-6 my-2">
+                        <label for="first_name">First Name</label>
+                        <input
+                                th:field="*{first_name}"
+                                type="text"
+                                class="form-control"
+                                id="first_name"
+                                placeholder="Name"
+                        />
+                    </div>
+                    <div class="form-group col-12 col-md-6 my-2">
+                        <label for="last_name">Last Name</label>
+                        <input
+                                th:field="*{last_name}"
+                                type="text"
+                                class="form-control"
+                                id="last_name"
+                                placeholder="Surname"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group my-3">
+                    <label for="inputAddress">Address</label>
+                    <input
+                            th:field="*{address}"
+                            type="text"
+                            class="form-control"
+                            id="inputAddress"
+                            placeholder="1234 Main St"
+                    />
+                </div>
+                <div class="form-group my-3">
+                    <label for="inputAddress2">Address 2</label>
+                    <input
+                            th:field="*{address2}"
+                            type="text"
+                            class="form-control"
+                            id="inputAddress2"
+                            placeholder="Apartment, studio, or floor"
+                    />
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-12 col-md-5 my-2">
+                        <label for="inputCity">City</label>
+                        <input
+                                th:field="*{city}"
+                                type="text"
+                                class="form-control"
+                                id="inputCity"
+                        />
+                    </div>
+                    <div class="form-group col-12 col-md-4 my-3">
+                        <label for="inputState">State</label>
+                        <select id="inputState" class="form-control" th:field="*{state}">
+                            <option value="-">-</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="USA">USA</option>
+                            <option value="Germany">Germany</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-12 col-md-2 my-3">
+                        <label for="inputZip">Zip</label>
+                        <input
+                                th:field="*{postal_code}"
+                                type="number"
+                                class="form-control"
+                                id="inputZip"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-12 col-md-6">
+                        <button
+                                type="submit"
+                                class="btn btn-dark btn-login mt-3 mb-5"
+                        >
+                            Submit
+                        </button>
+                    </div>
+                </div>
+                <p class="pb-4">
+                    Already have an account?
+                    <a href="/login">Login here</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>

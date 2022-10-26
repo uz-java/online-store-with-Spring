@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MST - Products by Category</title>
+    <!-- Bootstrap -->
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="/webjars/bootstrap/css/bootstrap.min.css"
+    />
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn6.f-cdn.com/contestentries/565076/14898096/5772c36b99629_thumb900.jpg" type="image/jpg" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+            rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link th:href="@{/css/style.css}" href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/navigation.css}" href="/css/navigation.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div th:replace="fragments/navigation :: navigation(userDetails=${userDetails}, totalCartSum=${totalCartSum}, totalCartItems=${totalCartItems})"></div>
+
+<div class="container">
+    <div id="products" class="mb-3" style="padding: 2rem 4rem;">
+        <h1 class="my-4 mx-3"><span th:text="${name}"></span> Products</h1>
+        <div class="sorting">
+
+        </div>
+        <div class="row" style="padding: 2rem 4rem;">
+            <div th:each="product : ${products}" class="col-md-6 col-lg-4 col-xl-3">
+
+                <div class="card product-card">
+                    <img src="https://media.istockphoto.com/photos/3d-rendering-book-and-reading-concept-picture-id1332946887?b=1&k=20&m=1332946887&s=170667a&w=0&h=0Ls976MqxxTliO0jJEMMZKs-_1M9gsFUOijJRzUIKAE=" alt="Product" class="img-fluid product-image">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product.name}"></h5>
+                        <h6 class="card-subtitle mb-2 product-category" th:text="${product.getCategory().getName()}"></h6>
+                        <p>
+                            Price: <span class="product-price" th:text="${product.price} + ' $'"></span>
+                        </p>
+                        <p class="card-text product-desc" th:text="${product.description}"></p>
+                        <div class="mt-2" style="width: 100%; text-align: center;">
+                            <div th:if="${#lists.contains(productIds, product.getId())}" th:remove="tag">
+                                <button disabled class="btn btn-outline-primary product-cta">In Cart</button>
+                            </div>
+                            <div th:unless="${#lists.contains(productIds, product.getId())}" th:remove="tag">
+                                <a th:href="@{'/cart/add/' + ${product.getId()} + '/1'}" class="btn btn-dark product-cta">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+
+<script src="https://kit.fontawesome.com/386023a665.js" crossorigin="anonymous"></script>
+</body>
+</html>

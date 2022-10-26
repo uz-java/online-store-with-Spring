@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MST - Dashboard</title>
+    <!-- Bootstrap -->
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="/webjars/bootstrap/css/bootstrap.min.css"
+    />
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn6.f-cdn.com/contestentries/565076/14898096/5772c36b99629_thumb900.jpg" type="image/jpg" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+            rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link th:href="@{/css/style.css}" href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/navigation.css}" href="/css/navigation.css" rel="stylesheet" type="text/css" />
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+</head>
+<body>
+<div th:replace="fragments/navigation :: navigation(userDetails=${userDetails}, totalCartSum=${totalCartSum}, totalCartItems=${totalCartItems})"></div>
+
+<div class="container" style="display: flex;">
+    <div class="row" style="margin: auto; padding: 2rem 4rem; max-width: 80%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h3 style="margin-bottom: 1.5rem;">Thank you for your purchase, <span th:text="${userDetails.getUsername()}"></span></h3>
+        <h1 style="margin-bottom: 1rem;">$<span th:text="${total}"></span></h1>
+        <img src="http://www.clker.com/cliparts/2/k/n/l/C/Q/transparent-green-checkmark-md.png" style="width: 60px; height: 60px;" />
+        <p style="font-size: .75rem; margin-top: 2rem;">Redirect in 5s...</p>
+    </div>
+</div>
+
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/386023a665.js" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+<script>
+    window.setTimeout(function(){
+        window.location.href = "http://localhost:9090/";
+    }, 4000);
+</script>
+</body>
+</html>

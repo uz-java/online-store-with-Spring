@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MST - Dashboard</title>
+    <!-- Bootstrap -->
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="/webjars/bootstrap/css/bootstrap.min.css"
+    />
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn6.f-cdn.com/contestentries/565076/14898096/5772c36b99629_thumb900.jpg" type="image/jpg" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+            rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link th:href="@{/css/style.css}" href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/navigation.css}" href="/css/navigation.css" rel="stylesheet" type="text/css" />
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+</head>
+<body>
+    <div th:replace="fragments/navigation :: navigation(userDetails=${userDetails}, totalCartSum=${totalCartSum}, totalCartItems=${totalCartItems})"></div>
+
+    <div class="home-hero">
+        <div class="hero-banner">
+            <h1 class="home__hero--main-title">
+                Welcome to New Era
+            </h1>
+            <h2 class="home__hero--sub-title mb-4">
+                of Technology
+            </h2>
+            <a th:href="@{/products}" class="home__hero--btn btn btn-outline-dark">
+                Embrace It
+            </a>
+        </div>
+    </div>
+
+    <section class="c-section-title__wrapper">
+        <div class="container">
+            <div class="row px-md-2 px-lg-5 pt-5" style="padding-bottom: 5rem; min-height: 75rem;">
+                <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                    <div class="c-section-title__text">
+                        <i class="fas fa-info-circle c-section-title__icon"></i>
+                        <h2 class="c-section-title__title">
+                            About
+                        </h2>
+                        <p class="c-section-title__paragraph">
+                            MST Inc. is an American multinational technology company headquartered in Cupertino, California, that designs, develops and sells consumer electronics, computer software, and online services.
+                        </p>
+                    </div>
+                </div>
+                <div class="c-gallery-sm mx-auto">
+                    <img src="https://images.pexels.com/photos/267507/pexels-photo-267507.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" class="img-1">
+                    <img src="https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" class="img-2">
+                    <img src="https://images.pexels.com/photos/326519/pexels-photo-326519.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" class="img-3">
+                    <img src="https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" class="img-4">
+                    <h1 class="c-gallery-sm__title">
+                        <span>Innovations</span> that excite!
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="c-section-title__wrapper">
+        <div class="container">
+            <div class="row px-md-2 px-lg-5 pt-5" style="padding-bottom: 5rem;">
+                <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2" style="margin-bottom: 5rem;">
+                    <div class="c-section-title__text">
+                        <i class="fas fa-microchip c-section-title__icon"></i>
+                        <h2 class="c-section-title__title">
+                            Technologies
+                        </h2>
+                        <p class="c-section-title__paragraph">
+                            MST hardware, software, and services work together to deliver a seamless experience that just works. You can start a project on Mac and finish it on iPad, use your screens side by side to extend your workspace, and even draw with Apple Pencil on your iPad or use your iPhone to make live updates on your Mac.
+                        </p>
+                    </div>
+                </div>
+
+                <div th:replace="fragments/categories-index :: categories_index(categories=${categories})"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="c-section-title__wrapper">
+        <div class="container">
+            <div class="row px-md-2 px-lg-5 pt-5" style="padding-bottom: 5rem;">
+                <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2" style="margin-bottom: 5rem;">
+                    <div class="c-section-title__text">
+                        <i class="fas fa-rocket c-section-title__icon"></i>
+                        <h2 class="c-section-title__title">
+                            Rock-stars
+                        </h2>
+                        <p class="c-section-title__paragraph">
+                            MST hardware, software, and services work together to deliver a seamless experience that just works. You can start a project on Mac and finish it on iPad, use your screens side by side to extend your workspace, and even draw with Apple Pencil on your iPad or use your iPhone to make live updates on your Mac.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 mb-5">
+                    <a th:href="@{/products}" class="all-products-link">
+                        See all products <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+
+                <div th:replace="fragments/product-slider :: product_slider(products=${products}, productIds=${productIds})"></div>
+
+            </div>
+        </div>
+    </section>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/386023a665.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+</body>
+</html>

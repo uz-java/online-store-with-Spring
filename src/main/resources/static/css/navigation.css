@@ -1,0 +1,54 @@
+header {
+    background: white;
+    box-shadow: 5px 0 5px #cacaca;
+}
+nav{
+    min-height: 80px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+nav ul{
+    margin-right: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+nav ul li a{
+    color: black;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+
+.cart-items {
+    position: absolute;
+    top: -8px;
+    right: -5px;
+    font-size: .75rem;
+    display: inline-block;
+    background: #cacaca;
+    padding: 0.05rem .3rem;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+}
+
+.cart-price {
+    font-size: 1.2rem;
+}
+
+.welcome {
+    font-variant: small-caps;
+}
+
+@media screen and (max-width: 600px) {
+    .user-cart {
+        padding-left: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+}

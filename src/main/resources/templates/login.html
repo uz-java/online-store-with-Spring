@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MST - Login Page</title>
+    <!-- Bootstrap -->
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="/webjars/bootstrap/css/bootstrap.min.css"
+    />
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn6.f-cdn.com/contestentries/565076/14898096/5772c36b99629_thumb900.jpg" type="image/jpg" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+            rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link th:href="@{/css/style.css}" href="/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<section class="login">
+    <div class="container">
+        <div class="row gx-0 login-row">
+            <div class="col-lg-6 px-0">
+                <img
+                        src="https://media.istockphoto.com/photos/hello-and-welcome-written-white-lightbox-sitting-on-blue-background-picture-id1371547852?b=1&k=20&m=1371547852&s=170667a&w=0&h=vRGvMO4a7KKYdTQ9Ln1UVdlg5C0POExw73jGsotVgzA="
+                        class="img-fluid login-image"
+                        alt=""
+                />
+            </div>
+            <!--    <img
+                        src="https://t4.ftcdn.net/jpg/03/90/93/75/360_F_390937582_JrBOTT64519UIotFvyootSOZJp8wVjef.jpg"
+                        class="img-fluid"
+                        alt=""
+                        height="50"
+                        width="100"
+                />-->
+            <div class="col-lg-6 px-5 py-3">
+                <h4 class="fw-bold mb-3 mb-lg-5">Sign in to your account</h4>
+                <form action="/login" method="post" th:object="${user}">
+                    <div class="form-row">
+                        <div class="form-input col-lg-10">
+                            <input
+                                    th:field="*{username}"
+                                    type="text"
+                                    placeholder="Username"
+                                    class="form-control my-2 p-2"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-input form-row">
+                        <div class="col-lg-10">
+                            <input
+                                    th:field="*{password}"
+                                    type="password"
+                                    placeholder="Password"
+                                    class="form-control my-2 p-2"
+                            />
+                        </div>
+                    </div>
+                    <!--<div class="form-row">
+                        <div class="col-lg-10">
+                            <button
+                                    th:field="*{password_confirmation}"
+                                    type="button"
+                                    placeholder="Password"
+                                    class="btn btn-dark btn-login mt-2 mb-5"
+                            >
+                                Login
+                            </button>
+                        </div>
+                    </div>-->
+
+                    <div class="form-input form-row">
+                        <div class="col-10">
+                            <input
+                                    type="submit"
+                                    value="Login"
+                                    class="btn btn-dark col-md-6 my-2 p-2"
+                            />
+                        </div>
+                    </div>
+
+
+                    <p class="mt-4">
+                        Don't have an account?
+                        <a href="/register">Register here</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
