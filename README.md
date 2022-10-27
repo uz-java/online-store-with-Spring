@@ -63,4 +63,7 @@ A Spring MVC provides an elegant solution to use MVC in spring framework by the 
 - The controller returns an object of ModelAndView.
 - The DispatcherServlet checks the entry of view resolver in the XML file and invokes the specified view component.
 
+------------
+
+![register](img/register.png)
 ![login](img/login.png)
