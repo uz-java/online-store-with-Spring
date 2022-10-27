@@ -65,5 +65,8 @@ A Spring MVC provides an elegant solution to use MVC in spring framework by the 
 
 ------------
 
-![register](img/register.png)
 ![login](img/login.png)
+![register](img/register.png)
+![products](img/products.png)
+![productCreate](img/productCreate.png)
+![users](img/users.png)
