@@ -2,7 +2,7 @@
 	<img src="https://readme-typing-svg.demolab.com/?lines=Online+store+website!">
 </h1>
 
-# Online store made in Java, Spring Boot and Thymeleaf.
+# Online store made in Spring(Boot, MVC) and Thymeleaf.
 
 ------------
 
