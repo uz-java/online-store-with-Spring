@@ -4,6 +4,7 @@
 
 # Online store made in Spring boot, mvc and Thymeleaf.
 
+
 ------------
 
 #### Use Case - Complete Shopping from Scratch:
